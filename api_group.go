@@ -19,13 +19,14 @@ import (
 	"strings"
 )
 
+
 // GroupApiService GroupApi service
 type GroupApiService service
 
 type ApiAddMemberRequest struct {
-	ctx             context.Context
-	ApiService      *GroupApiService
-	groupId         string
+	ctx context.Context
+	ApiService *GroupApiService
+	groupId string
 	memberReference *MemberReference
 }
 
@@ -49,17 +50,17 @@ AddMember Add a member to a group
 func (a *GroupApiService) AddMember(ctx context.Context, groupId string) ApiAddMemberRequest {
 	return ApiAddMemberRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupApiService) AddMemberExecute(r ApiAddMemberRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.AddMember")
@@ -118,13 +119,13 @@ func (a *GroupApiService) AddMemberExecute(r ApiAddMemberRequest) (*http.Respons
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -132,10 +133,10 @@ func (a *GroupApiService) AddMemberExecute(r ApiAddMemberRequest) (*http.Respons
 }
 
 type ApiDeleteGroupRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *GroupApiService
-	groupId    string
-	ifMatch    *string
+	groupId string
+	ifMatch *string
 }
 
 // ETag
@@ -158,17 +159,17 @@ DeleteGroup Delete entity from groups
 func (a *GroupApiService) DeleteGroup(ctx context.Context, groupId string) ApiDeleteGroupRequest {
 	return ApiDeleteGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupApiService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.DeleteGroup")
@@ -225,13 +226,13 @@ func (a *GroupApiService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Res
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -239,11 +240,11 @@ func (a *GroupApiService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Res
 }
 
 type ApiDeleteMemberRequest struct {
-	ctx               context.Context
-	ApiService        *GroupApiService
-	groupId           string
+	ctx context.Context
+	ApiService *GroupApiService
+	groupId string
 	directoryObjectId string
-	ifMatch           *string
+	ifMatch *string
 }
 
 // ETag
@@ -266,9 +267,9 @@ DeleteMember Delete member from a group
 */
 func (a *GroupApiService) DeleteMember(ctx context.Context, groupId string, directoryObjectId string) ApiDeleteMemberRequest {
 	return ApiDeleteMemberRequest{
-		ApiService:        a,
-		ctx:               ctx,
-		groupId:           groupId,
+		ApiService: a,
+		ctx: ctx,
+		groupId: groupId,
 		directoryObjectId: directoryObjectId,
 	}
 }
@@ -276,9 +277,9 @@ func (a *GroupApiService) DeleteMember(ctx context.Context, groupId string, dire
 // Execute executes the request
 func (a *GroupApiService) DeleteMemberExecute(r ApiDeleteMemberRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.DeleteMember")
@@ -336,13 +337,13 @@ func (a *GroupApiService) DeleteMemberExecute(r ApiDeleteMemberRequest) (*http.R
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -350,11 +351,11 @@ func (a *GroupApiService) DeleteMemberExecute(r ApiDeleteMemberRequest) (*http.R
 }
 
 type ApiGetGroupRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *GroupApiService
-	groupId    string
-	select_    *[]string
-	expand     *[]string
+	groupId string
+	select_ *[]string
+	expand *[]string
 }
 
 // Select properties to be returned
@@ -383,8 +384,8 @@ GetGroup Get entity from groups by key
 func (a *GroupApiService) GetGroup(ctx context.Context, groupId string) ApiGetGroupRequest {
 	return ApiGetGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
@@ -392,10 +393,10 @@ func (a *GroupApiService) GetGroup(ctx context.Context, groupId string) ApiGetGr
 //  @return Group
 func (a *GroupApiService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Group
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.GetGroup")
@@ -455,13 +456,13 @@ func (a *GroupApiService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.R
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -478,9 +479,9 @@ func (a *GroupApiService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.R
 }
 
 type ApiListMembersRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *GroupApiService
-	groupId    string
+	groupId string
 }
 
 func (r ApiListMembersRequest) Execute() (*CollectionOfUsers, *http.Response, error) {
@@ -497,8 +498,8 @@ ListMembers Get a list of the group's direct members
 func (a *GroupApiService) ListMembers(ctx context.Context, groupId string) ApiListMembersRequest {
 	return ApiListMembersRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
@@ -506,10 +507,10 @@ func (a *GroupApiService) ListMembers(ctx context.Context, groupId string) ApiLi
 //  @return CollectionOfUsers
 func (a *GroupApiService) ListMembersExecute(r ApiListMembersRequest) (*CollectionOfUsers, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CollectionOfUsers
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CollectionOfUsers
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.ListMembers")
@@ -563,13 +564,13 @@ func (a *GroupApiService) ListMembersExecute(r ApiListMembersRequest) (*Collecti
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -586,10 +587,10 @@ func (a *GroupApiService) ListMembersExecute(r ApiListMembersRequest) (*Collecti
 }
 
 type ApiUpdateGroupRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *GroupApiService
-	groupId    string
-	group      *Group
+	groupId string
+	group *Group
 }
 
 // New property values
@@ -612,17 +613,17 @@ UpdateGroup Update entity in groups
 func (a *GroupApiService) UpdateGroup(ctx context.Context, groupId string) ApiUpdateGroupRequest {
 	return ApiUpdateGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *GroupApiService) UpdateGroupExecute(r ApiUpdateGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPatch
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.UpdateGroup")
@@ -681,13 +682,13 @@ func (a *GroupApiService) UpdateGroupExecute(r ApiUpdateGroupRequest) (*http.Res
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 

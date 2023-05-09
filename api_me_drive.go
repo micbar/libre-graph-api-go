@@ -18,11 +18,12 @@ import (
 	"net/url"
 )
 
+
 // MeDriveApiService MeDriveApi service
 type MeDriveApiService service
 
 type ApiGetHomeRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *MeDriveApiService
 }
 
@@ -39,7 +40,7 @@ GetHome Get personal space for user
 func (a *MeDriveApiService) GetHome(ctx context.Context) ApiGetHomeRequest {
 	return ApiGetHomeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -47,10 +48,10 @@ func (a *MeDriveApiService) GetHome(ctx context.Context) ApiGetHomeRequest {
 //  @return Drive
 func (a *MeDriveApiService) GetHomeExecute(r ApiGetHomeRequest) (*Drive, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Drive
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Drive
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MeDriveApiService.GetHome")
@@ -103,13 +104,13 @@ func (a *MeDriveApiService) GetHomeExecute(r ApiGetHomeRequest) (*Drive, *http.R
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

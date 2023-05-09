@@ -130,7 +130,6 @@ func (o *Application) HasDisplayName() bool {
 func (o *Application) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
-
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *Application) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -190,3 +189,5 @@ func (v *NullableApplication) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

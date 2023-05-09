@@ -19,12 +19,13 @@ import (
 	"strings"
 )
 
+
 // ApplicationsApiService ApplicationsApi service
 type ApplicationsApiService service
 
 type ApiGetApplicationRequest struct {
-	ctx           context.Context
-	ApiService    *ApplicationsApiService
+	ctx context.Context
+	ApiService *ApplicationsApiService
 	applicationId string
 }
 
@@ -41,8 +42,8 @@ GetApplication Get application by id
 */
 func (a *ApplicationsApiService) GetApplication(ctx context.Context, applicationId string) ApiGetApplicationRequest {
 	return ApiGetApplicationRequest{
-		ApiService:    a,
-		ctx:           ctx,
+		ApiService: a,
+		ctx: ctx,
 		applicationId: applicationId,
 	}
 }
@@ -51,10 +52,10 @@ func (a *ApplicationsApiService) GetApplication(ctx context.Context, application
 //  @return Application
 func (a *ApplicationsApiService) GetApplicationExecute(r ApiGetApplicationRequest) (*Application, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Application
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Application
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationsApiService.GetApplication")
@@ -108,13 +109,13 @@ func (a *ApplicationsApiService) GetApplicationExecute(r ApiGetApplicationReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -131,7 +132,7 @@ func (a *ApplicationsApiService) GetApplicationExecute(r ApiGetApplicationReques
 }
 
 type ApiListApplicationsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ApplicationsApiService
 }
 
@@ -148,7 +149,7 @@ ListApplications Get all applications
 func (a *ApplicationsApiService) ListApplications(ctx context.Context) ApiListApplicationsRequest {
 	return ApiListApplicationsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -156,10 +157,10 @@ func (a *ApplicationsApiService) ListApplications(ctx context.Context) ApiListAp
 //  @return CollectionOfApplications
 func (a *ApplicationsApiService) ListApplicationsExecute(r ApiListApplicationsRequest) (*CollectionOfApplications, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CollectionOfApplications
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CollectionOfApplications
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationsApiService.ListApplications")
@@ -212,13 +213,13 @@ func (a *ApplicationsApiService) ListApplicationsExecute(r ApiListApplicationsRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

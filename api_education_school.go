@@ -19,13 +19,14 @@ import (
 	"strings"
 )
 
+
 // EducationSchoolApiService EducationSchoolApi service
 type EducationSchoolApiService service
 
 type ApiAddClassToSchoolRequest struct {
-	ctx            context.Context
-	ApiService     *EducationSchoolApiService
-	schoolId       string
+	ctx context.Context
+	ApiService *EducationSchoolApiService
+	schoolId string
 	classReference *ClassReference
 }
 
@@ -49,17 +50,17 @@ AddClassToSchool Assign a class to a school
 func (a *EducationSchoolApiService) AddClassToSchool(ctx context.Context, schoolId string) ApiAddClassToSchoolRequest {
 	return ApiAddClassToSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
 // Execute executes the request
 func (a *EducationSchoolApiService) AddClassToSchoolExecute(r ApiAddClassToSchoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.AddClassToSchool")
@@ -118,13 +119,13 @@ func (a *EducationSchoolApiService) AddClassToSchoolExecute(r ApiAddClassToSchoo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -132,9 +133,9 @@ func (a *EducationSchoolApiService) AddClassToSchoolExecute(r ApiAddClassToSchoo
 }
 
 type ApiAddUserToSchoolRequest struct {
-	ctx                    context.Context
-	ApiService             *EducationSchoolApiService
-	schoolId               string
+	ctx context.Context
+	ApiService *EducationSchoolApiService
+	schoolId string
 	educationUserReference *EducationUserReference
 }
 
@@ -158,17 +159,17 @@ AddUserToSchool Assign a user to a school
 func (a *EducationSchoolApiService) AddUserToSchool(ctx context.Context, schoolId string) ApiAddUserToSchoolRequest {
 	return ApiAddUserToSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
 // Execute executes the request
 func (a *EducationSchoolApiService) AddUserToSchoolExecute(r ApiAddUserToSchoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.AddUserToSchool")
@@ -227,13 +228,13 @@ func (a *EducationSchoolApiService) AddUserToSchoolExecute(r ApiAddUserToSchoolR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -241,8 +242,8 @@ func (a *EducationSchoolApiService) AddUserToSchoolExecute(r ApiAddUserToSchoolR
 }
 
 type ApiCreateSchoolRequest struct {
-	ctx             context.Context
-	ApiService      *EducationSchoolApiService
+	ctx context.Context
+	ApiService *EducationSchoolApiService
 	educationSchool *EducationSchool
 }
 
@@ -265,7 +266,7 @@ CreateSchool Add new school
 func (a *EducationSchoolApiService) CreateSchool(ctx context.Context) ApiCreateSchoolRequest {
 	return ApiCreateSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -273,10 +274,10 @@ func (a *EducationSchoolApiService) CreateSchool(ctx context.Context) ApiCreateS
 //  @return EducationSchool
 func (a *EducationSchoolApiService) CreateSchoolExecute(r ApiCreateSchoolRequest) (*EducationSchool, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *EducationSchool
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EducationSchool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.CreateSchool")
@@ -334,13 +335,13 @@ func (a *EducationSchoolApiService) CreateSchoolExecute(r ApiCreateSchoolRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -357,10 +358,10 @@ func (a *EducationSchoolApiService) CreateSchoolExecute(r ApiCreateSchoolRequest
 }
 
 type ApiDeleteClassFromSchoolRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
-	schoolId   string
-	classId    string
+	schoolId string
+	classId string
 }
 
 func (r ApiDeleteClassFromSchoolRequest) Execute() (*http.Response, error) {
@@ -378,18 +379,18 @@ DeleteClassFromSchool Unassign class from a school
 func (a *EducationSchoolApiService) DeleteClassFromSchool(ctx context.Context, schoolId string, classId string) ApiDeleteClassFromSchoolRequest {
 	return ApiDeleteClassFromSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
-		classId:    classId,
+		ctx: ctx,
+		schoolId: schoolId,
+		classId: classId,
 	}
 }
 
 // Execute executes the request
 func (a *EducationSchoolApiService) DeleteClassFromSchoolExecute(r ApiDeleteClassFromSchoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.DeleteClassFromSchool")
@@ -444,13 +445,13 @@ func (a *EducationSchoolApiService) DeleteClassFromSchoolExecute(r ApiDeleteClas
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -458,9 +459,9 @@ func (a *EducationSchoolApiService) DeleteClassFromSchoolExecute(r ApiDeleteClas
 }
 
 type ApiDeleteSchoolRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
-	schoolId   string
+	schoolId string
 }
 
 func (r ApiDeleteSchoolRequest) Execute() (*http.Response, error) {
@@ -477,17 +478,17 @@ DeleteSchool Delete school
 func (a *EducationSchoolApiService) DeleteSchool(ctx context.Context, schoolId string) ApiDeleteSchoolRequest {
 	return ApiDeleteSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
 // Execute executes the request
 func (a *EducationSchoolApiService) DeleteSchoolExecute(r ApiDeleteSchoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.DeleteSchool")
@@ -541,13 +542,13 @@ func (a *EducationSchoolApiService) DeleteSchoolExecute(r ApiDeleteSchoolRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -555,10 +556,10 @@ func (a *EducationSchoolApiService) DeleteSchoolExecute(r ApiDeleteSchoolRequest
 }
 
 type ApiDeleteUserFromSchoolRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
-	schoolId   string
-	userId     string
+	schoolId string
+	userId string
 }
 
 func (r ApiDeleteUserFromSchoolRequest) Execute() (*http.Response, error) {
@@ -576,18 +577,18 @@ DeleteUserFromSchool Unassign user from a school
 func (a *EducationSchoolApiService) DeleteUserFromSchool(ctx context.Context, schoolId string, userId string) ApiDeleteUserFromSchoolRequest {
 	return ApiDeleteUserFromSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
-		userId:     userId,
+		ctx: ctx,
+		schoolId: schoolId,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *EducationSchoolApiService) DeleteUserFromSchoolExecute(r ApiDeleteUserFromSchoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.DeleteUserFromSchool")
@@ -642,13 +643,13 @@ func (a *EducationSchoolApiService) DeleteUserFromSchoolExecute(r ApiDeleteUserF
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -656,9 +657,9 @@ func (a *EducationSchoolApiService) DeleteUserFromSchoolExecute(r ApiDeleteUserF
 }
 
 type ApiGetSchoolRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
-	schoolId   string
+	schoolId string
 }
 
 func (r ApiGetSchoolRequest) Execute() (*EducationSchool, *http.Response, error) {
@@ -675,8 +676,8 @@ GetSchool Get the properties of a specific school
 func (a *EducationSchoolApiService) GetSchool(ctx context.Context, schoolId string) ApiGetSchoolRequest {
 	return ApiGetSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
@@ -684,10 +685,10 @@ func (a *EducationSchoolApiService) GetSchool(ctx context.Context, schoolId stri
 //  @return EducationSchool
 func (a *EducationSchoolApiService) GetSchoolExecute(r ApiGetSchoolRequest) (*EducationSchool, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *EducationSchool
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EducationSchool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.GetSchool")
@@ -741,13 +742,13 @@ func (a *EducationSchoolApiService) GetSchoolExecute(r ApiGetSchoolRequest) (*Ed
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -764,9 +765,9 @@ func (a *EducationSchoolApiService) GetSchoolExecute(r ApiGetSchoolRequest) (*Ed
 }
 
 type ApiListSchoolClassesRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
-	schoolId   string
+	schoolId string
 }
 
 func (r ApiListSchoolClassesRequest) Execute() (*CollectionOfEducationClass, *http.Response, error) {
@@ -783,8 +784,8 @@ ListSchoolClasses Get the educationClass resources owned by an educationSchool
 func (a *EducationSchoolApiService) ListSchoolClasses(ctx context.Context, schoolId string) ApiListSchoolClassesRequest {
 	return ApiListSchoolClassesRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
@@ -792,10 +793,10 @@ func (a *EducationSchoolApiService) ListSchoolClasses(ctx context.Context, schoo
 //  @return CollectionOfEducationClass
 func (a *EducationSchoolApiService) ListSchoolClassesExecute(r ApiListSchoolClassesRequest) (*CollectionOfEducationClass, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CollectionOfEducationClass
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CollectionOfEducationClass
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.ListSchoolClasses")
@@ -849,13 +850,13 @@ func (a *EducationSchoolApiService) ListSchoolClassesExecute(r ApiListSchoolClas
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -872,9 +873,9 @@ func (a *EducationSchoolApiService) ListSchoolClassesExecute(r ApiListSchoolClas
 }
 
 type ApiListSchoolUsersRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
-	schoolId   string
+	schoolId string
 }
 
 func (r ApiListSchoolUsersRequest) Execute() (*CollectionOfEducationUser1, *http.Response, error) {
@@ -891,8 +892,8 @@ ListSchoolUsers Get the educationUser resources associated with an educationScho
 func (a *EducationSchoolApiService) ListSchoolUsers(ctx context.Context, schoolId string) ApiListSchoolUsersRequest {
 	return ApiListSchoolUsersRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
@@ -900,10 +901,10 @@ func (a *EducationSchoolApiService) ListSchoolUsers(ctx context.Context, schoolI
 //  @return CollectionOfEducationUser1
 func (a *EducationSchoolApiService) ListSchoolUsersExecute(r ApiListSchoolUsersRequest) (*CollectionOfEducationUser1, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CollectionOfEducationUser1
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CollectionOfEducationUser1
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.ListSchoolUsers")
@@ -957,13 +958,13 @@ func (a *EducationSchoolApiService) ListSchoolUsersExecute(r ApiListSchoolUsersR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -980,7 +981,7 @@ func (a *EducationSchoolApiService) ListSchoolUsersExecute(r ApiListSchoolUsersR
 }
 
 type ApiListSchoolsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *EducationSchoolApiService
 }
 
@@ -997,7 +998,7 @@ ListSchools Get a list of schools and their properties
 func (a *EducationSchoolApiService) ListSchools(ctx context.Context) ApiListSchoolsRequest {
 	return ApiListSchoolsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -1005,10 +1006,10 @@ func (a *EducationSchoolApiService) ListSchools(ctx context.Context) ApiListScho
 //  @return CollectionOfSchools
 func (a *EducationSchoolApiService) ListSchoolsExecute(r ApiListSchoolsRequest) (*CollectionOfSchools, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CollectionOfSchools
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CollectionOfSchools
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.ListSchools")
@@ -1061,13 +1062,13 @@ func (a *EducationSchoolApiService) ListSchoolsExecute(r ApiListSchoolsRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1084,9 +1085,9 @@ func (a *EducationSchoolApiService) ListSchoolsExecute(r ApiListSchoolsRequest) 
 }
 
 type ApiUpdateSchoolRequest struct {
-	ctx             context.Context
-	ApiService      *EducationSchoolApiService
-	schoolId        string
+	ctx context.Context
+	ApiService *EducationSchoolApiService
+	schoolId string
 	educationSchool *EducationSchool
 }
 
@@ -1110,8 +1111,8 @@ UpdateSchool Update properties of a school
 func (a *EducationSchoolApiService) UpdateSchool(ctx context.Context, schoolId string) ApiUpdateSchoolRequest {
 	return ApiUpdateSchoolRequest{
 		ApiService: a,
-		ctx:        ctx,
-		schoolId:   schoolId,
+		ctx: ctx,
+		schoolId: schoolId,
 	}
 }
 
@@ -1119,10 +1120,10 @@ func (a *EducationSchoolApiService) UpdateSchool(ctx context.Context, schoolId s
 //  @return EducationSchool
 func (a *EducationSchoolApiService) UpdateSchoolExecute(r ApiUpdateSchoolRequest) (*EducationSchool, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *EducationSchool
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EducationSchool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EducationSchoolApiService.UpdateSchool")
@@ -1181,13 +1182,13 @@ func (a *EducationSchoolApiService) UpdateSchoolExecute(r ApiUpdateSchoolRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

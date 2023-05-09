@@ -19,13 +19,14 @@ import (
 	"strings"
 )
 
+
 // DrivesApiService DrivesApi service
 type DrivesApiService service
 
 type ApiCreateDriveRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DrivesApiService
-	drive      *Drive
+	drive *Drive
 }
 
 // New space property values
@@ -47,7 +48,7 @@ CreateDrive Create a new drive of a specific type
 func (a *DrivesApiService) CreateDrive(ctx context.Context) ApiCreateDriveRequest {
 	return ApiCreateDriveRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -55,10 +56,10 @@ func (a *DrivesApiService) CreateDrive(ctx context.Context) ApiCreateDriveReques
 //  @return Drive
 func (a *DrivesApiService) CreateDriveExecute(r ApiCreateDriveRequest) (*Drive, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Drive
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Drive
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DrivesApiService.CreateDrive")
@@ -116,13 +117,13 @@ func (a *DrivesApiService) CreateDriveExecute(r ApiCreateDriveRequest) (*Drive, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -139,10 +140,10 @@ func (a *DrivesApiService) CreateDriveExecute(r ApiCreateDriveRequest) (*Drive, 
 }
 
 type ApiDeleteDriveRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DrivesApiService
-	driveId    string
-	ifMatch    *string
+	driveId string
+	ifMatch *string
 }
 
 // ETag
@@ -165,17 +166,17 @@ DeleteDrive Delete a specific space
 func (a *DrivesApiService) DeleteDrive(ctx context.Context, driveId string) ApiDeleteDriveRequest {
 	return ApiDeleteDriveRequest{
 		ApiService: a,
-		ctx:        ctx,
-		driveId:    driveId,
+		ctx: ctx,
+		driveId: driveId,
 	}
 }
 
 // Execute executes the request
 func (a *DrivesApiService) DeleteDriveExecute(r ApiDeleteDriveRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DrivesApiService.DeleteDrive")
@@ -232,13 +233,13 @@ func (a *DrivesApiService) DeleteDriveExecute(r ApiDeleteDriveRequest) (*http.Re
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -246,9 +247,9 @@ func (a *DrivesApiService) DeleteDriveExecute(r ApiDeleteDriveRequest) (*http.Re
 }
 
 type ApiGetDriveRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DrivesApiService
-	driveId    string
+	driveId string
 }
 
 func (r ApiGetDriveRequest) Execute() (*Drive, *http.Response, error) {
@@ -265,8 +266,8 @@ GetDrive Get drive by id
 func (a *DrivesApiService) GetDrive(ctx context.Context, driveId string) ApiGetDriveRequest {
 	return ApiGetDriveRequest{
 		ApiService: a,
-		ctx:        ctx,
-		driveId:    driveId,
+		ctx: ctx,
+		driveId: driveId,
 	}
 }
 
@@ -274,10 +275,10 @@ func (a *DrivesApiService) GetDrive(ctx context.Context, driveId string) ApiGetD
 //  @return Drive
 func (a *DrivesApiService) GetDriveExecute(r ApiGetDriveRequest) (*Drive, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Drive
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Drive
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DrivesApiService.GetDrive")
@@ -331,13 +332,13 @@ func (a *DrivesApiService) GetDriveExecute(r ApiGetDriveRequest) (*Drive, *http.
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -354,10 +355,10 @@ func (a *DrivesApiService) GetDriveExecute(r ApiGetDriveRequest) (*Drive, *http.
 }
 
 type ApiUpdateDriveRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DrivesApiService
-	driveId    string
-	drive      *Drive
+	driveId string
+	drive *Drive
 }
 
 // New space values
@@ -380,8 +381,8 @@ UpdateDrive Update the drive
 func (a *DrivesApiService) UpdateDrive(ctx context.Context, driveId string) ApiUpdateDriveRequest {
 	return ApiUpdateDriveRequest{
 		ApiService: a,
-		ctx:        ctx,
-		driveId:    driveId,
+		ctx: ctx,
+		driveId: driveId,
 	}
 }
 
@@ -389,10 +390,10 @@ func (a *DrivesApiService) UpdateDrive(ctx context.Context, driveId string) ApiU
 //  @return Drive
 func (a *DrivesApiService) UpdateDriveExecute(r ApiUpdateDriveRequest) (*Drive, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *Drive
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Drive
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DrivesApiService.UpdateDrive")
@@ -451,13 +452,13 @@ func (a *DrivesApiService) UpdateDriveExecute(r ApiUpdateDriveRequest) (*Drive, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

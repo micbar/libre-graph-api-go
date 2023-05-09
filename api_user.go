@@ -19,14 +19,15 @@ import (
 	"strings"
 )
 
+
 // UserApiService UserApi service
 type UserApiService service
 
 type ApiDeleteUserRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserApiService
-	userId     string
-	ifMatch    *string
+	userId string
+	ifMatch *string
 }
 
 // ETag
@@ -49,17 +50,17 @@ DeleteUser Delete entity from users
 func (a *UserApiService) DeleteUser(ctx context.Context, userId string) ApiDeleteUserRequest {
 	return ApiDeleteUserRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UserApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.DeleteUser")
@@ -116,13 +117,13 @@ func (a *UserApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Respon
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -130,9 +131,9 @@ func (a *UserApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Respon
 }
 
 type ApiExportPersonalDataRequest struct {
-	ctx                       context.Context
-	ApiService                *UserApiService
-	userId                    string
+	ctx context.Context
+	ApiService *UserApiService
+	userId string
 	exportPersonalDataRequest *ExportPersonalDataRequest
 }
 
@@ -156,17 +157,17 @@ ExportPersonalData export personal data of a user
 func (a *UserApiService) ExportPersonalData(ctx context.Context, userId string) ApiExportPersonalDataRequest {
 	return ApiExportPersonalDataRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UserApiService) ExportPersonalDataExecute(r ApiExportPersonalDataRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.ExportPersonalData")
@@ -222,13 +223,13 @@ func (a *UserApiService) ExportPersonalDataExecute(r ApiExportPersonalDataReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -236,11 +237,11 @@ func (a *UserApiService) ExportPersonalDataExecute(r ApiExportPersonalDataReques
 }
 
 type ApiGetUserRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserApiService
-	userId     string
-	select_    *[]string
-	expand     *[]string
+	userId string
+	select_ *[]string
+	expand *[]string
 }
 
 // Select properties to be returned
@@ -269,8 +270,8 @@ GetUser Get entity from users by key
 func (a *UserApiService) GetUser(ctx context.Context, userId string) ApiGetUserRequest {
 	return ApiGetUserRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
@@ -278,10 +279,10 @@ func (a *UserApiService) GetUser(ctx context.Context, userId string) ApiGetUserR
 //  @return User
 func (a *UserApiService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *User
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.GetUser")
@@ -341,13 +342,13 @@ func (a *UserApiService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Respo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -364,10 +365,10 @@ func (a *UserApiService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Respo
 }
 
 type ApiUpdateUserRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserApiService
-	userId     string
-	user       *User
+	userId string
+	user *User
 }
 
 // New property values
@@ -390,8 +391,8 @@ UpdateUser Update entity in users
 func (a *UserApiService) UpdateUser(ctx context.Context, userId string) ApiUpdateUserRequest {
 	return ApiUpdateUserRequest{
 		ApiService: a,
-		ctx:        ctx,
-		userId:     userId,
+		ctx: ctx,
+		userId: userId,
 	}
 }
 
@@ -399,10 +400,10 @@ func (a *UserApiService) UpdateUser(ctx context.Context, userId string) ApiUpdat
 //  @return User
 func (a *UserApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPatch
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *User
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserApiService.UpdateUser")
@@ -461,13 +462,13 @@ func (a *UserApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *http
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v OdataError
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
+			var v OdataError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

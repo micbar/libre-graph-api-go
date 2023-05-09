@@ -19,13 +19,19 @@ import (
 type RemoteItem struct {
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
 	// Date and time of item creation. Read-only.
-	CreatedDateTime *time.Time      `json:"createdDateTime,omitempty"`
-	File            *OpenGraphFile  `json:"file,omitempty"`
-	FileSystemInfo  *FileSystemInfo `json:"fileSystemInfo,omitempty"`
-	Folder          *Folder         `json:"folder,omitempty"`
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	File *OpenGraphFile `json:"file,omitempty"`
+	FileSystemInfo *FileSystemInfo `json:"fileSystemInfo,omitempty"`
+	Folder *Folder `json:"folder,omitempty"`
+	// The drive alias can be used in clients to make the urls user friendly. Example: 'personal/einstein'. This will be used to resolve to the correct driveID.
+	DriveAlias *string `json:"driveAlias,omitempty"`
+	// The relative path of the item related to it's drive root.
+	Path *string `json:"path,omitempty"`
+	// Unique identifier for the drive root of this item. Read-only.
+	RootId *string `json:"rootId,omitempty"`
 	// Unique identifier for the remote item in its drive. Read-only.
-	Id             *string      `json:"id,omitempty"`
-	Image          *Image       `json:"image,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Image *Image `json:"image,omitempty"`
 	LastModifiedBy *IdentitySet `json:"lastModifiedBy,omitempty"`
 	// Date and time the item was last modified. Read-only.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
@@ -34,11 +40,11 @@ type RemoteItem struct {
 	// ETag for the item. Read-only.
 	ETag *string `json:"eTag,omitempty"`
 	// An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.
-	CTag            *string        `json:"cTag,omitempty"`
+	CTag *string `json:"cTag,omitempty"`
 	ParentReference *ItemReference `json:"parentReference,omitempty"`
-	Shared          *Shared        `json:"shared,omitempty"`
+	Shared *Shared `json:"shared,omitempty"`
 	// Size of the remote item. Read-only.
-	Size          *int64         `json:"size,omitempty"`
+	Size *int64 `json:"size,omitempty"`
 	SpecialFolder *SpecialFolder `json:"specialFolder,omitempty"`
 	// DAV compatible URL for the item.
 	WebDavUrl *string `json:"webDavUrl,omitempty"`
@@ -221,6 +227,102 @@ func (o *RemoteItem) HasFolder() bool {
 // SetFolder gets a reference to the given Folder and assigns it to the Folder field.
 func (o *RemoteItem) SetFolder(v Folder) {
 	o.Folder = &v
+}
+
+// GetDriveAlias returns the DriveAlias field value if set, zero value otherwise.
+func (o *RemoteItem) GetDriveAlias() string {
+	if o == nil || o.DriveAlias == nil {
+		var ret string
+		return ret
+	}
+	return *o.DriveAlias
+}
+
+// GetDriveAliasOk returns a tuple with the DriveAlias field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RemoteItem) GetDriveAliasOk() (*string, bool) {
+	if o == nil || o.DriveAlias == nil {
+		return nil, false
+	}
+	return o.DriveAlias, true
+}
+
+// HasDriveAlias returns a boolean if a field has been set.
+func (o *RemoteItem) HasDriveAlias() bool {
+	if o != nil && o.DriveAlias != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDriveAlias gets a reference to the given string and assigns it to the DriveAlias field.
+func (o *RemoteItem) SetDriveAlias(v string) {
+	o.DriveAlias = &v
+}
+
+// GetPath returns the Path field value if set, zero value otherwise.
+func (o *RemoteItem) GetPath() string {
+	if o == nil || o.Path == nil {
+		var ret string
+		return ret
+	}
+	return *o.Path
+}
+
+// GetPathOk returns a tuple with the Path field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RemoteItem) GetPathOk() (*string, bool) {
+	if o == nil || o.Path == nil {
+		return nil, false
+	}
+	return o.Path, true
+}
+
+// HasPath returns a boolean if a field has been set.
+func (o *RemoteItem) HasPath() bool {
+	if o != nil && o.Path != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPath gets a reference to the given string and assigns it to the Path field.
+func (o *RemoteItem) SetPath(v string) {
+	o.Path = &v
+}
+
+// GetRootId returns the RootId field value if set, zero value otherwise.
+func (o *RemoteItem) GetRootId() string {
+	if o == nil || o.RootId == nil {
+		var ret string
+		return ret
+	}
+	return *o.RootId
+}
+
+// GetRootIdOk returns a tuple with the RootId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RemoteItem) GetRootIdOk() (*string, bool) {
+	if o == nil || o.RootId == nil {
+		return nil, false
+	}
+	return o.RootId, true
+}
+
+// HasRootId returns a boolean if a field has been set.
+func (o *RemoteItem) HasRootId() bool {
+	if o != nil && o.RootId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRootId gets a reference to the given string and assigns it to the RootId field.
+func (o *RemoteItem) SetRootId(v string) {
+	o.RootId = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -656,6 +758,15 @@ func (o RemoteItem) MarshalJSON() ([]byte, error) {
 	if o.Folder != nil {
 		toSerialize["folder"] = o.Folder
 	}
+	if o.DriveAlias != nil {
+		toSerialize["driveAlias"] = o.DriveAlias
+	}
+	if o.Path != nil {
+		toSerialize["path"] = o.Path
+	}
+	if o.RootId != nil {
+		toSerialize["rootId"] = o.RootId
+	}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
@@ -733,3 +844,5 @@ func (v *NullableRemoteItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
